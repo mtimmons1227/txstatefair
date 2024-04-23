@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food and Beverage Concession Compliance Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="BigTex.png" alt="State Fair of Texas">
+        </div>
+        <form id="complianceForm">
+            <h2 class="report-heading">FOOD AND BEVERAGE CONCESSION<br>COMPLIANCE REPORTS</h2>
+            <br> <!-- Blank line -->
+            <!-- Start Date and End Date fields -->
+            <div class="header-section">
+                <label for="datetime">Start Date:</label>
+                <input type="text" name="datetime" id="datetime" class="date-input" readonly>
+                <label for="endDatetime">End Date:</label>
+                <input type="text" name="endDatetime" id="endDatetime" class="date-input" readonly>
+            </div>
+            <!-- Inspector dropdown -->
+            <div class="input-group">
+                <label for="inspector">Inspector:</label>
+                <select name="inspector" id="inspector">
+                    <option value="" selected disabled>Select Inspector</option>
+                </select>
+            </div>
+            <!-- Map Plat No dropdown -->
+            <div class="input-group">
+                <label for="map_plat">Map Plat No.:</label>
+                <select name="map_plat" id="map_plat">
+                    <option value="" selected disabled>Select Location</option>
+                    <!-- Options will be populated dynamically using JavaScript -->
+                </select>
+            </div>
+            <!-- Concessionaire display field -->
+            <div class="input-group">
+                <label for="concessionaire">Concessionaire:</label>
+                <span id="concessionaire"></span>
+            </div>
+            <!-- Legend for Rating Scale -->
+            <div class="legend" style="text-align: center; font-size: 12px;">
+                1 - Unacceptable &emsp; 2 - Poor &emsp; 3 - Average &emsp; 4 - Good &emsp; 5 - Excellent
+            </div>
+            <!-- CLEANLINESS Section -->
+            <div class="form-section cleanliness">
+                <legend class="legend"><u><strong>CLEANLINESS</strong></u></legend>
+                <!-- Cleanliness input fields (radio buttons and checkboxes) -->
+                <div class="input-group" style="margin-left: 10px;">
+                    <label>Inside & counters:</label>
+                    <div class="radio-group">
+                        <input type="radio" name="inside_counters" value="1">
+                        <input type="radio" name="inside_counters" value="2">
+                        <input type="radio" name="inside_counters" value="3">
+                        <input type="radio" name="inside_counters" value="4">
+                        <input type="radio" name="inside_counters" value="5">
+                    </div>
+                </div>
+                <div class="input-group" style="margin-left: 10px;">
+                    <label>Outside area & surfaces:</label>
+                    <div class="radio-group">
+                        <input type="radio" name="outside_area_surfaces" value="1">
+                        <input type="radio" name="outside_area_surfaces" value="2">
+                        <input type="radio" name="outside_area_surfaces" value="3">
+                        <input type="radio" name="outside_area_surfaces" value="4">
+                        <input type="radio" name="outside_area_surfaces" value="5">
+                    </div>
+                </div>
+                <div class="input-group" style="margin-left: 10px;">
+                    <label>Back area, trash, cardboard:</label>
+                    <div class="radio-group">
+                        <input type="radio" name="Back_area_trash" value="1">
+                        <input type="radio" name="Back_area_trash" value="2">
+                        <input type="radio" name="Back_area_trash" value="3">
+                        <input type="radio" name="Back_area_trash" value="4">
+                        <input type="radio" name="Back_area_trash" value="5">
+                    </div>
+                </div>
+                <div class="input-group" style="margin-left: 10px;">
+                    <label for="liquidDischargeCheckbox">Is location free of liquid discharge?</label>
+                    <div id="liquidDischargeCheckbox" class="yes-no-label">
+                        <label>
+                            <input type="checkbox" name="liquidDischargeCheckbox" value="yes"> Yes
+                        </label>
+                        <label>
+                            <input type="checkbox" name="liquidDischargeCheckbox" value="no"> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Cleanliness Comment Section -->
+            <div class="form-section comment-section">
+                <div class="input-group" style="margin-left: 10px;">
+                    <label for="cleanlinessComments">Cleanliness Comment:</label>
+                    <textarea id="cleanlinessComments" name="cleanlinessComments" class="comment-box" placeholder="Enter your comments here..." rows="3" style="width: 100%;"></textarea>
+                </div>
+            </div>
+            <hr style="border: 2px solid black;"> <!-- Separator -->
+            <!-- FOOD ISSUES Section -->
+            <div class="form-section">
+                <legend class="legend"><u><strong>FOOD ISSUES</strong></u></legend>
+                <!-- Storage Subsection -->
+                <div class="input-group" style="margin-left: 10px;">
+                    <label>Storage:</label>
+                    <div class="radio-group">
+                        <input type="radio" name="storage" value="1">
+                        <input type="radio" name="storage" value="2">
+                        <input type="radio" name="storage" value="3">
+                        <input type="radio" name="storage" value="4">
+                        <input type="radio" name="storage" value="5">
+                    </div>
+                </div>
+                <!-- Appearance (Wholesomeness) Subsection -->
+                <div class="input-group" style="margin-left: 10px;">
+                    <label>Appearance (Wholesomeness):</label>
+                    <div class="radio-group">
+                        <input type="radio" name="appearance" value="1">
+                        <input type="radio" name="appearance" value="2">
+                        <input type="radio" name="appearance" value="3">
+                        <input type="radio" name="appearance" value="4">
+                        <input type="radio" name="appearance" value="5">
+                    </div>
+                </div>
+            </div>
+            <!-- Food Issues Comment Section -->
+            <div class="form-section comment-section">
+                <div class="input-group" style="margin-left: 10px;">
+                    <label for="foodIssuesComments">Food Issues Comment:</label>
+                    <textarea id="foodIssuesComments" name="foodIssuesComments" class="comment-box" placeholder="Enter your comments here..." rows="3" style="width: 100%;"></textarea>
+                </div>
+            </div>
+            <hr style="border: 2px solid black;"> <!-- Separator -->
+            <!-- Submit Button -->
+            <input type="submit" value="Submit" class="submit-button" style="margin-top: 10px;"> <!-- Added margin-top for spacing -->
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "inspectors": ["Inspector 1", "Inspector 2", "Inspector 3"],
+  "platVendors": {
+    "Map Plat 1": "Vendor 1",
+    "Map Plat 2": "Vendor 2",
+    "Map Plat 3": "Vendor 3"
+  }
+}
